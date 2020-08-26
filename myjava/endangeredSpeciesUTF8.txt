@@ -1,0 +1,101 @@
+100
+Snow Leopard,³·°\,Panthera uncia,Endangered
+Tree Kangaroo,¾ð³U¹«,Dendrolagus sp.,Least Concern
+Sumatran Tiger,Ä¬ªùµªÃ¾ªê,Panthera tigris sumatrae,Critically Endangered
+Fin Whale,ªøÅ½ÄH,Balaenoptera physalus,Endangered
+African Wild Dog,«D¬w°[ª¯,Lycaon pictus,Endangered
+Chimpanzee,¶ÂµVµV,Pan troglodytes,Endangered
+Indian Elephant,¦L«×¶H,Elephas maximus indicus,Endangered
+Poison Dart Frog,¬r½bµì,Dendrobates species,Unknow
+Hector's Dolphin,»®§J¦«®ü³b,Cephalorhynchus hectori,Endangered
+Yangtze Finless Porpoise,´­¤l¦¿³b,Neophocaena asiaeorientalis ssp. asiaeorientalis,Vulnerable
+Indochinese Tiger,¦L«×¤ä¨ºªê,Panthera tigris corbetti,Endangered
+Giant Tortoise,¶HÀt,Unknow,Vulnerable
+Amur Tiger,¦è§B§Q¨Èªê,Panthera tigris altaica,Endangered
+Gal?pagos Penguin,¥[©Ô¤Ú­ô¥øÃZ,Spheniscus mendiculus,Endangered
+Loggerhead Turtle,ø¿Àt,Caretta caretta,Vulnerable
+Bornean Orangutan,±CÃ¹¬wµVµV,Pongo pygmaeus,Critically Endangered
+Pacific Salmon,¤Ó¥­¬vÂD³½,Unknow,Unknow
+Rhino,µR¤û,Unknow,Unknow
+Olive Ridley Turtle,ÆVø¿Àt,Lepidochelys olivacea,Vulnerable
+Whale Shark,ÄHÃT,Rhincodon typus,Vulnerable
+Jaguar,¬ü¬w°\,Panthera onca,Near Threatened
+Penguin,¥øÃZ,Spheniscidae,Unknow
+Greater Sage-Grouse,¦ã¯óªQÂû,Centrocercus urophasianus,Near Threatened
+Southern rockhopper penguin,«n³¡¸õ©¥¥øÃZ,Eudyptes chrysocome,Vulnerable
+South China Tiger,µØ«nªê,Panthera tigris amoyensis,Critically Endangered
+Malayan Tiger,°¨¨Ó¨Èªê,Panthera tigris jacksoni,Endangered
+Pangolin,¬ï¤s¥Ò,Unknow,Critically Endangered
+Red Panda,¤pºµ¿ß,Ailurus fulgens,Endangered
+Mountain Plover,©¥?,Charadrius montanus,Near Threatened
+Sri Lankan Elephant,´µ¨½Äõ¥d¶H,Elephas maximus maximus,Endangered
+Albacore Tuna,ªøÅ_ÂC,Thunnus alalunga,Near Threatened
+Sei Whale,¶ëÄH,Balaenoptera borealis,Endangered
+Bigeye Tuna,µuÂC,Thunnus obesus,Vulnerable
+Great White Shark,¤j¥ÕÃT,Carcharodon carcharias,Vulnerable
+Plains Bison,¥­­ì³¥¤û,Bison bison bison,Near Threatened
+Humphead Wrasse,Ä¬¬Ü³½,Cheilinus undulatus,Endangered
+Monarch Butterfly,«Ò¤ý½º,Danaus plexippus,Near Threatened
+Eastern Lowland Gorilla,ªF³¡§C¦a¤jµVµV,Gorilla beringei graueri,Critically Endangered
+Ganges River Dolphin,ùÚªeªe³b,Platanista gangetica gangetica,Endangered
+Tuna,ÂC³½,Thunnus and Katsuwonus species,Unknow
+Tiger,ªê,Panthera tigris,Endangered
+Arctic Fox,¥_·¥ª°,Vulpes lagopus,Least Concern
+Whale,ÄH,Balaenoptera/ Balaena/ Eschrichtius/ and Eubalaen,Endangered
+Hawksbill Turtle,¬Å·è,Eretmochelys imbricata,Critically Endangered
+Marine Iguana,®üÆc»h,Amblyrhynchus cristatus,Vulnerable
+Hippopotamus,ªe°¨,Hippopotamus amphibius,Vulnerable
+Sumatran Orangutan,Ä¬ªùµªÃ¾µVµV,Pongo abelii,Critically Endangered
+White Rhino,¥ÕµR¤û,Ceratotherium simum,Near Threatened
+Bowhead Whale,¤}ÀYÄH,Balaena mysticetus,Least Concern
+Dolphins and Porpoises,®ü³b©M¹«®ü³b,Unknow,Unknow
+Swift Fox,¯ó­ìª°,Vulpes velox,Least Concern
+Saola,¤¤«n¤j²Ü,Pseudoryx nghetinhensis,Critically Endangered
+Mountain Gorilla,¤s¦a¤jµVµV,Gorilla beringei beringei,Critically Endangered
+Gray Whale,¦ÇÄH,Eschrichtius robustus,Least Concern
+Bengal Tiger,©s¥[©Ôªê,Panthera tigris tigris,Endangered
+Yellowfin Tuna,¶ÀÅ_ÂC,Thunnus albacares,Near Threatened
+Amur Leopard,»·ªF°\,Panthera pardus orientalis,Critically Endangered
+Javan Rhino,¤ö«zµR¤û,Rhinoceros sondaicus,Critically Endangered
+Narwhal,¤@¨¤ÄH,Monodon monoceros,Near Threatened
+North Atlantic Right Whale,¥_¤j¦è¬vÅS¯áÄH,Eubalaena glacialis,Endangered
+Greater One-Horned Rhino,¦L«×µR¤û,Rhinoceros unicornis,Vulnerable
+Vaquita,¤pÀY¹«®ü³b,Phocoena sinus,Critically Endangered
+Black Spider Monkey,¶Â»jµïµU,Ateles paniscus,Vulnerable
+Sumatran Rhino,Ä¬ªùµªÃ¾µR¤û,Dicerorhinus sumatrensis,Critically Endangered
+Gorilla,¤jµVµV,Gorilla gorilla and Gorilla beringei,Unknow
+Western Lowland Gorilla,¦è³¡§C¦a¤jµVµV,Gorilla gorilla gorilla,Critically Endangered
+Sea Lions,®ü·à,Zalophus wollebaeki,Endangered
+Seals,®ü°\,Unknow,Unknow
+Shark,ÃT³½,Unknow,Unknow
+Macaw,ª÷­èÆxÄM,Ara ararauna,Least Concern
+Brown Bear,´Äºµ,Ursus arctos,Least Concern
+African Elephant,«D¬w¶H,Loxodonta africana,Vulnerable
+Green Turtle,ºñø¿Àt,Chelonia mydas,Endangered
+Asian Elephant,¨È¬w¶H,Elephas maximus indicus,Endangered
+Bonobo,¨Ü¾§¶ÂµVµV,Pan paniscus,Endangered
+Common Bottlenose Dolphin,¼e§k®ü³b,Unknow,Least Concern
+Bluefin Tuna,ÂÅÅ_ÂC,Thunnus spp,Endangered
+Black Rhino,¶ÂµR¤û,Diceros bicornis,Critically Endangered
+Black-footed Ferret,¶Â¸}Ã^,Mustela nigripes,Endangered
+Beluga,¥ÕÄH,Delphinapterus leucas,Near Threatened
+Irrawaddy Dolphin,µu§k®ü³b,Orcaella brevirostris,Vulnerable
+Polar Bear,¥_·¥ºµ,Ursus maritimus,Vulnerable
+Leatherback Turtle,Ù±¥ÖÀt,Dermochelys coriacea,Critically Endangered
+Blue Whale,ÂÅÄH,Balaenoptera musculus,Endangered
+Indus River Dolphin,¦L«×ªeªe³b,Platanista minor,Endangered
+Borneo Pygmy Elephant,±CÃ¹¬w¶H,Elephas maximus borneensis,Endangered
+Sumatran Elephant,Ä¬ªùµªÃ¾¤j¶H,Elephas maximus sumatranus,Critically Endangered
+Skipjack Tuna,÷®,Katsuwonus pelamis,Least Concern
+Orangutan,µVµV,Pongo abelii/ Pongo pygmaeus,Critically Endangered
+Forest Elephant,´ËªL¶H,Unknow,Vulnerable
+Sloth,¾ðÃi,Unknow,Unknow
+Amazon River Dolphin,¨È°¨»¹ªe³b,Inia geoffrensis,Unknow
+Elephant,¶H,Unknow,Unknow
+Cross River Gorilla,§JÃ¹µ·ªe¤jµVµV,Gorilla gorilla diehli,Critically Endangered
+Dugong,¾§¦á,Dugong dugon,Vulnerable
+Giant Panda,¤jºµ¿ß,Ailuropoda melanoleuca,Vulnerable
+Pronghorn,¤e¨¤²Ü,Antilocarpa americana,Least Concern
+Arctic Wolf,¥_·¥¯T,Canis lupus arctos,Least Concern
+Savanna Elephant,¯ó­ì¶H,Loxodonta africana africana,Vulnerable
+Sea Turtle,®üÀt,Cheloniidae and Dermochelyidae families,Vulnerable
