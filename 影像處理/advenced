@@ -1,0 +1,294 @@
+import numpy as np
+from PIL import ImageGrab
+import cv2
+import time
+import threading
+from pykeyboard import *
+from pymouse import *
+
+#地圖處理
+def map_process(img):
+
+    hsv = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
+    '''
+    i, j = 0, 0
+    for i in range(600):  # 檢查每個像素 H 值
+        for j in range(800):
+            hsv_h = hsv[i, j, 0]
+            if hsv_h == 101:  # 地面顏色 HSV 的 H 值為101
+                hsv[i, j, 2] = 180  # V 值越高越白
+            else:
+
+                hsv[i, j, 2] = 0
+    '''
+    gray = cv2.inRange(hsv,np.array([101,136,120]),np.array([101,136,120]))
+    '''
+    rgb = cv2.cvtColor(hsv, cv2.COLOR_HSV2RGB)
+    gray = cv2.cvtColor(rgb, cv2.COLOR_RGB2GRAY)
+    gray = cv2.medianBlur(gray, 11)  # 去除椒鹽雜訊
+    res, gray = cv2.threshold(gray, 100, 255, 0)
+    '''
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (70, 50))
+    closing = cv2.morphologyEx(gray, cv2.MORPH_CLOSE, kernel)
+
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (15,30))
+    dilate = cv2.dilate(closing, kernel)
+
+    return dilate
+
+#水平探測
+def horizon_len(x, y, len, d,map):
+    global direct,max_path
+    count = 0
+    j = 1
+    if d == 3:
+        j = -1
+    for i in range(x, len,j):
+        if map[y][i] == 255:
+            count += 1
+        else:
+            break
+
+    if max_path < count:
+        direct = d
+        max_path = count
+    # if d == 3:
+    #     print('left : {}'.format(count))
+    # else:
+    #     print('right : {}'.format(count))
+    return count
+#垂直探測
+def vertical_len(x, y, len, d,map):
+    global direct,max_path
+    j = 1
+    count = 0
+    if d == 2:
+        j = -1
+    for i in range(y, len,j):
+        if map[i][x] == 255:
+            count += 1
+        else:
+            break
+
+    if max_path < count:
+        direct = d
+        max_path = count
+    # if d == 1:
+    #     print('front : {}'.format(count))
+    # else:
+    #     print('back : {}'.format(count))
+
+    return count
+
+def compare(i, j):
+    if i < j:
+        return j
+    return i
+max_path = 0
+
+#第一次尋路
+def first_road(map):
+
+    global  max_path
+    print('                         first  :   road')           # front座標 (413,270)
+    horizon_len(420, 270, 800, 4,map)                            # right 從第20個像素開始算
+    max_path = compare(max_path, vertical_len(400, 300, 600, 1,map))       # front      20
+    max_path = compare(max_path, horizon_len(380, 270, 0, 3,map))         # left        20
+    max_path = compare(max_path, vertical_len(400, 250, 0, 2,map))         # back       10
+    # print('max = {}'.format(max_path))
+    # print("direct  = %d"%direct)
+
+    press_direct()
+
+#還有沒有路
+def is_road(map):
+    global direct,max_path
+    # print("direct  = %d  path= %d" % (direct,max_path))
+    bool = True
+    if direct ==1 and map[320][413] == 0:    #是否為背景，判斷是否快到盡頭，向下走front(413,260)  y+60
+        if max_path != 0:
+            k.release_key(k.down_key)
+        print('release down\n')
+        bool = False
+    elif direct == 2 and map[398][413] == 0:      #向前走back(413,458) y-60
+        if max_path != 0:
+            k.release_key(k.up_key)
+        print('release up\n')
+        bool = False
+    elif direct == 3 and map[335][498] == 0:      #left(638,335) x-140
+        if max_path != 0:
+            k.release_key(k.left_key)
+        print('release left\n')
+        bool = False
+    elif direct == 4 and map[335][295] == 0:      #right(175,335) x+120
+        if max_path != 0:
+            k.release_key(k.right_key)
+        print('release right\n')
+        bool = False
+    # if not bool:
+    #     print('                     需換路')
+
+    return bool
+#輸出方向鍵
+def press_direct():
+    global direct
+    if direct == 1:
+        k.press_key('z')                # Z 為瞄準
+        k.press_key(k.down_key)
+        print('press down')
+    elif direct == 2:
+        k.press_key('z')
+        k.press_key(k.up_key)
+        print('press up')
+    elif direct == 3:
+        k.press_key('z')
+        k.press_key(k.left_key)
+        print('press left')
+    elif direct == 4:
+        k.press_key('z')
+        k.press_key(k.right_key)
+        print('press right')
+    time.sleep(0.8)
+    k.release_key('z')
+
+#沒有路要尋找新路
+def new_road(map):
+    global  max_path,direct
+    max_path = 0
+
+    if direct == 1:                             # front、back 水平探測   x+-20
+
+        horizon_len(433,260,800,4,map)
+        horizon_len(393, 260, 0, 3, map)
+
+    elif direct == 2:
+
+        horizon_len(433, 458, 800, 4, map)
+        horizon_len(400, 458, 0, 3, map)
+
+    elif direct == 3:                                   #left、right 垂直探測   y+-10
+        vertical_len(638, 345, 600, 1, map)
+        vertical_len(638, 325, 0, 2, map)
+
+    elif direct == 4:
+        vertical_len(175, 345, 600, 1, map)
+        vertical_len(175, 325, 0, 2, map)
+    press_direct()
+'''
+    try:
+        global t
+        t.start()
+        t = threading.Thread(target=press_direct)
+    except RuntimeError:
+        print('runtimeerror ')
+        cv2.destroyAllWindows()
+        sys.exit()
+t = threading.Thread(target=press_direct)
+'''
+#擷取畫面與呼叫函式
+def screen_record():
+    last_time = time.time()
+    while (True):
+        # global  t
+        # if t.is_alive():
+        #     t.join()
+
+        printscreen = np.array(ImageGrab.grab(bbox=(50, 130, 851, 730)))  # 50,130,851,730
+        print('loop took {} seconds '.format(time.time() - last_time))
+        last_time = time.time()
+
+        img = cv2.cvtColor(printscreen, cv2.COLOR_BGR2RGB)
+        map = map_process(img)
+
+
+
+        if (not is_road(map)) and direct != 0:
+            new_road(map)
+        if direct == 0:
+            first_road(map)
+
+
+        cv2.imshow('window1', map)
+        if cv2.waitKey(5) & 0xFF == ord('q'):  # waitKey = 鍵值，AND 8位元(只取8bits)，避免BUG  # cv2.destroyAllWindows()
+            # t.join()
+            cv2.destroyAllWindows()
+            sys.exit()
+
+direct = 0  # 0 不知道方向, 1 向後front, 2 向前back, 3 向左left, 4 向右roght
+k = PyKeyboard()
+time.sleep(2)
+screen_record()
+
+'''
+class Producer(Thread):
+    def __init__(self, name, que):
+        super(Producer, self).__init__()
+        self.__name = name
+        self.__que = que
+
+    def run(self):
+        while True:
+            global count
+            l.acquire()
+            count += 1
+            l.release()
+
+            printscreen = np.array(ImageGrab.grab(bbox=(50, 130, 851, 730)))  # 50,130,851,730
+            img = cv2.cvtColor(printscreen, cv2.COLOR_BGR2RGB)
+            self.__que.put(img)
+            self.__que.join()
+            if not c1.is_alive():
+                sys.exit()
+class Consumer(Thread):
+     def __init__(self, name, que):
+        super(Consumer, self).__init__()
+        self.__name = name
+        self.__que = que
+     def run(self):
+         last_time = time.time()
+         while True:
+             print('loop took {} seconds '.format(time.time() - last_time))
+             last_time = time.time()
+             img = self.__que.get()
+             hsv = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
+             i, j = 0, 0
+             for i in range(600):  # 檢查每個像素 H 值
+                 for j in range(800):
+                     hsv_h = hsv[i, j, 0]
+                     if hsv_h == 101:  # 地面顏色 HSV 的 H 值為101
+                         hsv[i, j, 2] = 180  # V 值越高越白
+                     else:
+
+                         hsv[i, j, 2] = 0
+
+             rgb = cv2.cvtColor(hsv, cv2.COLOR_HSV2RGB)
+             gray = cv2.cvtColor(rgb, cv2.COLOR_RGB2GRAY)
+             gray = cv2.medianBlur(gray, 11)  # 去除椒鹽雜訊
+             res, gray = cv2.threshold(gray, 100, 255, 0)
+
+             kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (70, 50))
+             closing = cv2.morphologyEx(gray, cv2.MORPH_CLOSE, kernel)
+
+             cv2.namedWindow('window')
+             cv2.imshow('window', closing)
+
+             if cv2.waitKey(2) & 0xFF == ord('q'):  # waitKey = 鍵值，AND 8位元(只取8bits)，避免BUG  # cv2.destroyAllWindows()
+                 cv2.destroyAllWindows()
+                 sys.exit(c1)
+
+             self.__que.task_done()
+
+
+q = Queue(20)
+count = 0
+l = RLock()
+
+p1 = Producer('screenshot',q)
+c1 = Consumer("first",q)
+
+p1.start()
+c1.start()
+
+c1.join()
+p1.join()
+'''
