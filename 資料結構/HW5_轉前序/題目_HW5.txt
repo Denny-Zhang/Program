@@ -1,0 +1,15 @@
+程式目的
+- 給定 Tree 的 PostOrder 與 InOrder 表示法，推論出該 Tree 的 PreOrder 表示法。
+
+輸入格式
+- 第 0 列恰包含一個整數，代表 Tree 的 Node 個數，此數值必大於 0，小於等於 50
+- 第 1 列代表 Tree 的 PostOrder 表示法，包含一串字元，每個字元代表一個 Node
+- 第 2 列代表 Tree 的 InOrder 表示法
+
+輸入檔範例如下：
+9
+CBEHGIFDA
+BCAEDGHFI
+
+輸出檔範例如下：
+ABCDEFGHI
